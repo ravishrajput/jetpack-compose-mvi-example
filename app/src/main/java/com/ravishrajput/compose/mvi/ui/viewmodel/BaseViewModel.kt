@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ravishrajput.compose.mvi.viewmodel
+package com.ravishrajput.compose.mvi.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

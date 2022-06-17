@@ -14,17 +14,13 @@
  * limitations under the License.
  */
 
-package com.ravishrajput.compose.mvi.screens.dashboard
+package com.ravishrajput.compose.mvi.domain.mappers
 
-sealed class DashboardViewState {
-  object Default : DashboardViewState()
-  object LoadingComplete : DashboardViewState()
-}
+import com.ravishrajput.compose.mvi.data.model.UsersData
+import com.ravishrajput.compose.mvi.ui.model.UserDetails
 
-sealed class DashboardViewEvent {
-  data class Message(val message: String) : DashboardViewEvent()
-}
-
-sealed class DashboardViewAction {
-  object Launch : DashboardViewAction()
+class UsersListMapper {
+  fun toUserDetails(userdata: UsersData): List<UserDetails> = userdata.users.map {
+    UserDetails(it.name, it.email)
+  }
 }

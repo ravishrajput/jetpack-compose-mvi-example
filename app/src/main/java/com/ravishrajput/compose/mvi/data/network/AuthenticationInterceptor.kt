@@ -14,14 +14,25 @@
  * limitations under the License.
  */
 
-package com.ravishrajput.compose.mvi.navigation
+package com.ravishrajput.compose.mvi.data.network
 
-import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
-import com.ravishrajput.compose.mvi.screens.dashboard.DashboardViewModel
-import com.ravishrajput.compose.mvi.screens.dashboard.ShowDashboardScreen
+import okhttp3.Credentials
+import okhttp3.Interceptor
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 
-@Composable
-fun NavigateToDashboardScreen(navController: NavController, viewModel: DashboardViewModel) {
-  ShowDashboardScreen(navController, viewModel)
+class AuthenticationInterceptor : Interceptor {
+  @Throws(IOException::class)
+  override fun intercept(chain: Interceptor.Chain): Response {
+    val original: Request = chain.request()
+
+    val basic = Credentials.basic("", "")
+
+    val builder: Request.Builder = original.newBuilder()
+      .header("Authorization", basic)
+
+    val request: Request = builder.build()
+    return chain.proceed(request)
+  }
 }

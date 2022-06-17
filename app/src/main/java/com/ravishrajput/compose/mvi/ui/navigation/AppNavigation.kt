@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.ravishrajput.compose.mvi.navigation
+package com.ravishrajput.compose.mvi.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ravishrajput.compose.mvi.screens.dashboard.DashboardViewModel
+import com.ravishrajput.compose.mvi.ui.screens.dashboard.DashboardViewModel
 
 @Composable
 fun AppNavigation() {

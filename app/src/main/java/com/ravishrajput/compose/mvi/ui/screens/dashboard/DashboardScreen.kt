@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ravishrajput.compose.mvi.screens.dashboard
+package com.ravishrajput.compose.mvi.ui.screens.dashboard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -49,8 +49,8 @@ fun ShowDashboardScreen(navController: NavController, viewModel: DashboardViewMo
           is DashboardViewState.Default -> {
             stringResource(R.string.dashboard)
           }
-          is DashboardViewState.LoadingComplete -> {
-            "API execution completed"
+          is DashboardViewState.Data -> {
+            "${state.listUsers.size}"
           }
         }
         Text(
